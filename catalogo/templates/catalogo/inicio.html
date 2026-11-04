@@ -1,0 +1,32 @@
+{% extends 'catalogo/base.html' %}
+
+{% block content %}
+    <form method="GET" class="filtros">
+        <input type="text" name="q" placeholder="Buscar álbum por título..." value="{{ request.GET.q }}">
+        <select name="artista">
+            <option value="">Todos los artistas</option>
+            {% for a in artistas %}
+                <option value="{{ a.id }}" {% if request.GET.artista == a.id|stringformat:"s" %}selected{% endif %}>
+                    {{ a.nombre }}
+                </option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn">Buscar</button>
+    </form>
+
+    <div class="grid-vinilos">
+        {% for v in vinilos %}
+            <div class="card">
+                {% if v.caratula %}
+                    <img src="{{ v.caratula.url }}" alt="{{ v.titulo }}">
+                {% endif %}
+                <h3>{{ v.titulo }}</h3>
+                <p class="artista">{{ v.artista.nombre }}</p>
+                <p class="precio">$ {{ v.precio }} CLP</p>
+                <a href="{% url 'detalle_vinilo' v.id %}" class="btn">Ver detalles y comprar</a>
+            </div>
+        {% empty %}
+            <p>No se encontraron vinilos en cartelera con esos filtros.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

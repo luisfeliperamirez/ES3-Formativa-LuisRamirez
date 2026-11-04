@@ -1,19 +1,22 @@
 from django.contrib import admin
-from .models import Artista, Album, Compra
+from .models import Artista, Vinilo, Pedido
 
-admin.site.register(Artista)
+@admin.register(Artista)
+class ArtistaAdmin(admin.ModelAdmin):
+    list_display = ('nombre',)
 
-@admin.register(Album)
-class AlbumAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'artista', 'precio_clp', 'en_stock') 
-    list_filter = ('artista', 'en_stock') 
-    search_fields = ('titulo',) 
+@admin.register(Vinilo)
+class ViniloAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'artista', 'precio_clp', 'en_catalogo')
+    list_filter = ('artista', 'en_catalogo')
+    search_fields = ('titulo',)
 
+    # Formateo de monto como pesos chilenos
     def precio_clp(self, obj):
-        return f"${obj.precio:,}".replace(',', '.') 
+        return f"${obj.precio:,}".replace(',', '.')
     precio_clp.short_description = 'Precio'
 
-@admin.register(Compra)
-class CompraAdmin(admin.ModelAdmin):
-    list_display = ('codigo', 'album', 'nombre_comprador', 'cantidad', 'fecha_compra') 
-    list_filter = ('album',) 
+@admin.register(Pedido)
+class PedidoAdmin(admin.ModelAdmin):
+    list_display = ('codigo', 'vinilo', 'comprador', 'cantidad', 'fecha_compra')
+    list_filter = ('vinilo',)

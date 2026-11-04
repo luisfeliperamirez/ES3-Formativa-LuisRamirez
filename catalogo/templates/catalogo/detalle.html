@@ -1,0 +1,28 @@
+{% extends 'catalogo/base.html' %}
+
+{% block content %}
+    <div class="detalle-box">
+        <div class="detalle-img">
+            {% if vinilo.caratula %}
+                <img src="{{ vinilo.caratula.url }}" alt="{{ vinilo.titulo }}">
+            {% endif %}
+        </div>
+        
+        <div class="detalle-info">
+            <h1>{{ vinilo.titulo }}</h1>
+            <h3 style="color: #666;">Artista: {{ vinilo.artista.nombre }}</h3>
+            <p><strong>Año de lanzamiento:</strong> {{ vinilo.anio }}</p>
+            <p class="precio">Precio por unidad: $ {{ vinilo.precio }} CLP</p>
+            
+            <div class="formulario">
+                <h2>Comprar Copias</h2>
+                <!-- El formulario captura errores y valida cantidades de 1 a 10 automáticamente según forms.py -->
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn" style="width: 100%;">Finalizar Compra</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

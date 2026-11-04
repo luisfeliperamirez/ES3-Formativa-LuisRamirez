@@ -1,0 +1,20 @@
+{% extends 'catalogo/base.html' %}
+
+{% block content %}
+    <div class="ticket-box">
+        <h1 style="color: #4CAF50;">✅ ¡Compra Exitosa!</h1>
+        <p>Guarda este comprobante para tu retiro.</p>
+        
+        <div class="ticket-info">
+            <p><strong>Código de Ticket:</strong> <br><small style="color: #666;">{{ pedido.codigo }}</small></p>
+            <hr>
+            <p><strong>Vinilo:</strong> {{ pedido.vinilo.titulo }} ({{ pedido.vinilo.artista.nombre }})</p>
+            <p><strong>Comprador:</strong> {{ pedido.comprador }}</p>
+            <p><strong>Cantidad adquirida:</strong> {{ pedido.cantidad }} copia(s)</p>
+            <p><strong>Total pagado:</strong> <span class="precio">{{ total_clp }}</span></p>
+            <p><strong>Fecha de compra:</strong> {{ pedido.fecha_compra|date:"d M Y H:i" }}</p>
+        </div>
+        
+        <a href="{% url 'inicio' %}" class="btn">Volver al catálogo</a>
+    </div>
+{% endblock %}
