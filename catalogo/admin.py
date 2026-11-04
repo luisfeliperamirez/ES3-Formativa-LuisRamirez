@@ -11,7 +11,6 @@ class ViniloAdmin(admin.ModelAdmin):
     list_filter = ('artista', 'en_catalogo')
     search_fields = ('titulo',)
 
-    # Formateo de monto como pesos chilenos
     def precio_clp(self, obj):
         return f"${obj.precio:,}".replace(',', '.')
     precio_clp.short_description = 'Precio'

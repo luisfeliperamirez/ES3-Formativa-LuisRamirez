@@ -2,11 +2,11 @@
 
 {% block content %}
     <div class="ticket-box">
-        <h1 style="color: #4CAF50;">✅ ¡Compra Exitosa!</h1>
+        <h1 class="ticket-success">¡Compra Exitosa!</h1>
         <p>Guarda este comprobante para tu retiro.</p>
         
         <div class="ticket-info">
-            <p><strong>Código de Ticket:</strong> <br><small style="color: #666;">{{ pedido.codigo }}</small></p>
+            <p><strong>Código de Ticket:</strong> <br><small class="ticket-code">{{ pedido.codigo }}</small></p>
             <hr>
             <p><strong>Vinilo:</strong> {{ pedido.vinilo.titulo }} ({{ pedido.vinilo.artista.nombre }})</p>
             <p><strong>Comprador:</strong> {{ pedido.comprador }}</p>

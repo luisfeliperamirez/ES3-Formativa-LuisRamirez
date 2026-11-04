@@ -1,0 +1,239 @@
+:root {
+    color-scheme: dark;
+    --background: #151718;
+    --surface: #202425;
+    --surface-raised: #292e2f;
+    --border: #3b4242;
+    --text: #f0eee8;
+    --muted: #b0b6b3;
+    --accent: #e8875b;
+    --accent-hover: #f29a70;
+    --success: #87c99a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background: linear-gradient(145deg, #1d2222 0%, var(--background) 48%, #171a1b 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #101212;
+    border-bottom: 1px solid var(--border);
+}
+
+header a {
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: var(--accent-hover);
+}
+
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.65rem 1rem;
+    color: #201713;
+    background: var(--accent);
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.filtros {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.filtros input,
+.filtros select,
+.formulario input,
+.formulario select,
+.formulario textarea {
+    min-width: 0;
+    padding: 0.65rem 0.75rem;
+    color: var(--text);
+    background: #171a1b;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font: inherit;
+}
+
+.filtros input,
+.filtros select {
+    flex: 1;
+}
+
+.filtros input:focus,
+.filtros select:focus,
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    border-color: var(--accent);
+    outline: 2px solid rgb(232 135 91 / 22%);
+}
+
+.grid-vinilos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    overflow: hidden;
+    padding-bottom: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--accent);
+}
+
+.card h3 {
+    margin: 1rem 0 0.2rem;
+    padding: 0 0.75rem;
+}
+
+.card p.artista {
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-style: italic;
+}
+
+.precio {
+    color: var(--accent-hover);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.detalle-box {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.detalle-img,
+.detalle-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.detalle-img img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.artist-name,
+.ticket-code {
+    color: var(--muted);
+}
+
+.formulario {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.formulario p {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.formulario ul,
+.errorlist {
+    color: #ff9a91;
+}
+
+.ticket-box {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: var(--surface);
+    border: 2px dashed #737b76;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.ticket-success {
+    color: var(--success);
+}
+
+.ticket-info {
+    margin: 2rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.ticket-info hr {
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+    header {
+        padding: 1rem;
+    }
+
+    main {
+        margin: 1.25rem auto;
+    }
+
+    .filtros,
+    .detalle-box {
+        flex-direction: column;
+    }
+
+    .detalle-box,
+    .ticket-box {
+        padding: 1.25rem;
+    }
+
+    .filtros .btn {
+        width: 100%;
+    }
+}
