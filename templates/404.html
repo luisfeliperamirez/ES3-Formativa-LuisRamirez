@@ -1,0 +1,10 @@
+{% extends 'catalogo/base.html' %}
+
+{% block content %}
+    <section class="error404" aria-labelledby="error404-title">
+        <p class="error404-code" aria-hidden="true">404</p>
+        <h1 id="error404-title">No encontramos esta página</h1>
+        <p class="error404-message">La dirección puede ser incorrecta o el contenido ya no está disponible.</p>
+        <a class="btn" href="{% url 'inicio' %}">Volver al catálogo</a>
+    </section>
+{% endblock %}

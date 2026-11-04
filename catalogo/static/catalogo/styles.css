@@ -214,6 +214,34 @@ main {
     border-top: 1px solid var(--border);
 }
 
+.error404 {
+    display: grid;
+    justify-items: start;
+    align-content: center;
+    min-height: 55vh;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.error404-code {
+    margin: 0;
+    color: var(--accent);
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.error404 h1 {
+    margin: 1rem 0 0.5rem;
+    font-size: 2rem;
+}
+
+.error404-message {
+    margin: 0 0 1.5rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
 @media (max-width: 640px) {
     header {
         padding: 1rem;
@@ -235,5 +263,13 @@ main {
 
     .filtros .btn {
         width: 100%;
+    }
+
+    .error404-code {
+        font-size: 4.5rem;
+    }
+
+    .error404 h1 {
+        font-size: 1.6rem;
     }
 }
